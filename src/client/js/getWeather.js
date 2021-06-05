@@ -31,7 +31,7 @@ async function getWeatherBit(lat, lng) {
 
 const search = document.getElementById("zip");
 const button = document.getElementById("generate");
-button.addEventListener("click", () => {
+button.addEventListener("submit", () => {
   const currentVal = search.value;
   console.log(getGeoNames(currentVal)); //get the whole data of geonames first then save in variable
   const geoData = getGeoNames(currentVal);
