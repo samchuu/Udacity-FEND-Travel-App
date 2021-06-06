@@ -3,7 +3,6 @@ async function getGeoNames(input) {
     //make request to url
     const response = await fetch(`http://api.geonames.org/searchJSON?q=${input}&maxRows=1&username=${geoUser}`);
     const data = await response.json();
-    
     return data
   }
 
@@ -29,17 +28,37 @@ async function getWeatherBit(lat, lng) {
   return weatherInfo;
 };
 
+async function getPixabay(input) {
+  
+  const pixabayAPI = process.env.PIX_API_KEY;
+  //make request to url
+  const response = await fetch(`https://pixabay.com/api/?key=${pixabayAPI}&q=${input}&image_type=photo`);
+  const data = await response.json();
+  return data
+
+}
+
 const search = document.getElementById("zip");
 const button = document.getElementById("generate");
-button.addEventListener("submit", () => {
+
+button.addEventListener("click", () => {
   const currentVal = search.value;
-  console.log(getGeoNames(currentVal)); //get the whole data of geonames first then save in variable
+  // console.log(getGeoNames(currentVal)); //get the whole data of geonames first then save in variable
   const geoData = getGeoNames(currentVal);
-  console.log(geoData.then((data)=> {         //use .then to access the data received from the saved variable, then get specific data (lat lng)
+  console.log(geoData.then((data)=> {  //data parameter here is just getGeoNames(currentVal); use .then on geoData to get specifics
+    // console.log(data);
     const lat=data.geonames[0].lat;
     const lng=data.geonames[0].lng;
-   console.log(getWeatherBit(lat,lng))
-  }))
+    const cityName=data.geonames[0].name;
+   console.log(getWeatherBit(lat,lng));
+  
+const pixabayPhoto = getPixabay(cityName);
+console.log(pixabayPhoto.then((data)=>{           //use .then on pixabayPhoto to get the specific object
+  console.log(data.hits[1].webformatURL);
+}));
+  })
+
+  )
 
   })
  
@@ -48,8 +67,11 @@ button.addEventListener("submit", () => {
 
 
 
+
+
 export { getGeoNames }
 export { getWeatherBit }
+export { getPixabay }
 
 
 

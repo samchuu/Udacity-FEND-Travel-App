@@ -50,6 +50,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': {
                 'GEO_API_KEY': JSON.stringify(process.env.GEO_API_KEY),
+                'PIX_API_KEY': JSON.stringify(process.env.PIX_API_KEY),
                 'WEATHERBIT_KEY': JSON.stringify(process.env.WEATHERBIT_KEY)
             }
         })
