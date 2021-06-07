@@ -22,23 +22,21 @@ async function getWeatherBit(name, lat, lng) {
   const slicedStart=startDateValue.slice(8,10)
   const endDateValue=endDate.value;
   const slicedEnd=endDateValue.slice(8,10);
-
-  const container = document.querySelector(".container");
+  
+  const container = document.querySelector(".box");
   const inputName=name;
   const finalName=inputName.charAt(0).toUpperCase()+inputName.slice(1);
   container.innerHTML = `
-  <div class="box1"> 
-
-  <p>Trip to: ${finalName}, ${weatherInfo.countryCode}</p>
-  <p>Departure: ${startDate.value}</p>
-  <p>Return: ${endDate.value}</p>
-  <p>Trip length: ${slicedEnd-slicedStart}</p>
-  <p>Temperature: ${weatherInfo.temp}</p>
-  <p>Description: ${weatherInfo.description}</p>
+  <div class="trip__details"> 
+  <h2>Trip Details</h2>
+  <p>🗺️  Trip to: ${finalName}, ${weatherInfo.countryCode}</p>
+  <p>🛫 Departure: ${startDate.value}</p>
+  <p>🛬  Return: ${endDate.value}</p>
+  <p>📆  Trip length: ${slicedEnd-slicedStart} days</p>
+  <p>❄️ Temperature: ${weatherInfo.temp}°C</p>
+  <p>☁️  Description: ${weatherInfo.description}</p>
   </div>
   `
- 
- 
   return weatherInfo;
 };
 
@@ -49,7 +47,7 @@ async function getPixabay(input) {
   const response = await fetch(`https://pixabay.com/api/?key=${pixabayAPI}&q=${input}&image_type=photo`);
   const data = await response.json();
   const photo = document.querySelector(".photo")
-  photo.innerHTML=` <img src="${data.hits[1].webformatURL}" alt="">`;
+  photo.innerHTML=` <img src="${data.hits[1].webformatURL}" alt="" class="pixabay_photo">`;
 
   return data
 
@@ -57,7 +55,7 @@ async function getPixabay(input) {
 
 const search = document.getElementById("zip");
 const button = document.getElementById("generate");
-
+const travelDetails=document.querySelector(".travel__details");
 button.addEventListener("click", () => {
   const currentVal = search.value;
   // console.log(getGeoNames(currentVal)); //get the whole data of geonames first then save in variable
@@ -72,6 +70,7 @@ button.addEventListener("click", () => {
 const pixabayPhoto = getPixabay(cityName);
 console.log(pixabayPhoto.then((data)=>{           //use .then on pixabayPhoto to get the specific object
   console.log(data.hits[1]);
+  travelDetails.style.display="none";
 }));
   })
 
