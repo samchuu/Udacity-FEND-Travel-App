@@ -19,9 +19,21 @@ async function getWeatherBit(name, lat, lng) {
   const startDate = document.getElementById("start");
   const endDate = document.getElementById("end");
   const startDateValue=startDate.value;
-  const slicedStart=startDateValue.slice(8,10)
   const endDateValue=endDate.value;
-  const slicedEnd=endDateValue.slice(8,10);
+  
+  let today = new Date();
+  let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  
+  let departureDate = new Date(startDateValue);
+  let returnDate = new Date(endDateValue);
+  let todayDate = new Date(date)
+  let tripLength = returnDate.getTime() - departureDate.getTime();
+  
+  let millisecsInDayFormula= 1000 *3600 *24;
+  
+  let daysAway= departureDate.getTime()- todayDate.getTime();
+  let flooredDaysAway= Math.floor(daysAway/millisecsInDayFormula);
+
   
   const container = document.querySelector(".box");
   const inputName=name;
@@ -29,10 +41,11 @@ async function getWeatherBit(name, lat, lng) {
   container.innerHTML = `
   <div class="trip__details"> 
   <h2>Trip Details</h2>
+  <p>${flooredDaysAway} days away</p>
   <p>🗺️  Trip to: ${finalName}, ${weatherInfo.countryCode}</p>
   <p>🛫 Departure: ${startDate.value}</p>
   <p>🛬  Return: ${endDate.value}</p>
-  <p>📆  Trip length: ${slicedEnd-slicedStart} days</p>
+  <p>📆  Trip length: ${tripLength/millisecsInDayFormula} days</p>
   <p>❄️ Temperature: ${weatherInfo.temp}°C</p>
   <p>☁️  Description: ${weatherInfo.description}</p>
   </div>
@@ -61,7 +74,6 @@ button.addEventListener("click", () => {
   // console.log(getGeoNames(currentVal)); //get the whole data of geonames first then save in variable
   const geoData = getGeoNames(currentVal);
   console.log(geoData.then((data)=> {  //data parameter here is just getGeoNames(currentVal); use .then on geoData to get specifics
-    // console.log(data);
     const lat=data.geonames[0].lat;
     const lng=data.geonames[0].lng;
     const cityName=data.geonames[0].name;
@@ -80,9 +92,6 @@ console.log(pixabayPhoto.then((data)=>{           //use .then on pixabayPhoto to
  
  
 ;
-
-
-
 
 
 export { getGeoNames }
