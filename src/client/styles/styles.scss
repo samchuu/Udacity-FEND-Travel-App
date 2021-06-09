@@ -6,14 +6,14 @@
 }
 
 body{
-
+    
     background-color: #21BADC ;
     font-family: 'Lato', sans-serif;
     color:black;
 }
 
 .travel__details {
-    border: 1px solid black;
+
     text-align: center;
     background-color:aliceblue;
     padding:2rem;
@@ -22,10 +22,10 @@ body{
     margin: 0 auto;
     border: none;
     max-width: 550px;
-    /* display:none; */
+    // display:none;
 }
 
-#generate {
+button {
     margin-top: 2rem;
     padding: .5rem 3.5rem;
     border-radius: 1rem;
@@ -33,7 +33,10 @@ body{
     cursor:pointer;
     background-color:#21BADC;
     color:white;
+  
 }
+
+
 
 #zip {
    width: 100%;
@@ -61,6 +64,12 @@ h2 {
 #end {
     border: 2px solid #275765;
     border-radius: .5rem;
+}
+
+.trip__away { 
+    text-align:center;
+    position:relative;
+    top: 30px;
 }
 
 label {
@@ -123,6 +132,7 @@ header {
     line-height: 26px;
     text-align: center;
     font-size: 18px;
+   
   }
 
   .pixabay_photo {

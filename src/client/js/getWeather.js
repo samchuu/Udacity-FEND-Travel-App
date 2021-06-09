@@ -24,6 +24,8 @@ async function getWeatherBit(name, lat, lng) {
   let today = new Date();
   let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   
+  //how to get number of days between two date objects 
+  //https://www.youtube.com/watch?v=D0KP8y-vctg&ab_channel=KodeBase
   let departureDate = new Date(startDateValue);
   let returnDate = new Date(endDateValue);
   let todayDate = new Date(date)
@@ -34,22 +36,63 @@ async function getWeatherBit(name, lat, lng) {
   let daysAway= departureDate.getTime()- todayDate.getTime();
   let flooredDaysAway= Math.floor(daysAway/millisecsInDayFormula);
 
-  
+  //trip details
   const container = document.querySelector(".box");
   const inputName=name;
   const finalName=inputName.charAt(0).toUpperCase()+inputName.slice(1);
   container.innerHTML = `
   <div class="trip__details"> 
   <h2>Trip Details</h2>
-  <p>${flooredDaysAway} days away</p>
   <p>🗺️  Trip to: ${finalName}, ${weatherInfo.countryCode}</p>
   <p>🛫 Departure: ${startDate.value}</p>
   <p>🛬  Return: ${endDate.value}</p>
   <p>📆  Trip length: ${tripLength/millisecsInDayFormula} days</p>
   <p>❄️ Temperature: ${weatherInfo.temp}°C</p>
   <p>☁️  Description: ${weatherInfo.description}</p>
+
+  <div>
+
+  <button class="save__trip">Save Trip</button>
+  <button class="close__trip">Close</button>
   </div>
+
+  </div>
+
   `
+
+  const saveTrip=document.querySelector(".save__trip");
+  saveTrip.addEventListener("click", ()=>{
+  
+    container.innerHTML = `
+    <h2 class="trip__away">Your trip to ${finalName} is ${flooredDaysAway} days away! ⏳</h2>
+  <div class="trip__details"> 
+  <h3>Trip Details</h3>
+
+  <p>🗺️  Trip to: ${finalName}, ${weatherInfo.countryCode}</p>
+  <p>🛫 Departure: ${startDate.value}</p>
+  <p>🛬  Return: ${endDate.value}</p>
+  <p>📆  Trip length: ${tripLength/millisecsInDayFormula} days</p>
+  <p>❄️ Temperature: ${weatherInfo.temp}°C</p>
+  <p>☁️  Description: ${weatherInfo.description}</p>
+
+  <div>
+
+  <button class="save__trip">Save Trip</button>
+  <button class="close__trip">Close</button>
+  </div>
+
+  </div>
+
+  `
+  const closeTrip = document.querySelector(".close__trip");
+  const tripContainer = document.querySelector(".container")
+  closeTrip.addEventListener("click", ()=>{
+    tripContainer.style.display="none";
+    travelDetails.style.display="block";
+  })
+
+  
+  })
   return weatherInfo;
 };
 
