@@ -42,7 +42,7 @@ async function getWeatherBit(name, lat, lng) {
   const finalName=inputName.charAt(0).toUpperCase()+inputName.slice(1);
   container.innerHTML = `
   <div class="trip__details"> 
-  <h2>Trip Details</h2>
+  <h3>Trip Details</h3>
   <p>🗺️  Trip to: ${finalName}, ${weatherInfo.countryCode}</p>
   <p>🛫 Departure: ${startDate.value}</p>
   <p>🛬  Return: ${endDate.value}</p>
@@ -53,7 +53,8 @@ async function getWeatherBit(name, lat, lng) {
   <div>
 
   <button class="save__trip">Save Trip</button>
-  <button class="close__trip">Close</button>
+ 
+
   </div>
 
   </div>
@@ -77,8 +78,9 @@ async function getWeatherBit(name, lat, lng) {
 
   <div>
 
+  <button class="close__trip">Remove Trip</button>
   <button class="save__trip">Save Trip</button>
-  <button class="close__trip">Close</button>
+ 
   </div>
 
   </div>
@@ -136,6 +138,7 @@ console.log(pixabayPhoto.then((data)=>{           //use .then on pixabayPhoto to
  
 ;
 
+//add saved trip show container box
 
 export { getGeoNames }
 export { getWeatherBit }

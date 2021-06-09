@@ -36,8 +36,6 @@ button {
   
 }
 
-
-
 #zip {
    width: 100%;
    padding: .5rem;
@@ -93,6 +91,7 @@ header {
     font-size: 18px;
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
+  cursor: pointer;
 }
 
 .hamburger {
@@ -143,7 +142,7 @@ header {
       object-fit:cover;
   }
 
-  @media (min-width:875px) {
+  @media (min-width:968px) {
     .pixabay_photo {
         width: 484px;
         height: 100%;
@@ -161,7 +160,12 @@ header {
       }
 
      
-
+      .trip__away { 
+      margin-left: 35px;
+      position:relative;
+      top: 85px;
+  
+    }
       .trip__details{
           display:flex;
           flex-direction: column;
