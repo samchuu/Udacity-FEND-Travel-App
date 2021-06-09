@@ -16,6 +16,7 @@ async function getWeatherBit(name, lat, lng) {
     description: data.data[0].weather.description,
     countryCode: data.data[0].country_code 
   } 
+ 
   const startDate = document.getElementById("start");
   const endDate = document.getElementById("end");
   const startDateValue=startDate.value;
@@ -36,8 +37,10 @@ async function getWeatherBit(name, lat, lng) {
   let daysAway= departureDate.getTime()- todayDate.getTime();
   let flooredDaysAway= Math.floor(daysAway/millisecsInDayFormula);
 
+  
   //trip details
   const container = document.querySelector(".box");
+  const tripMainContainer =document.querySelector(".container")
   const inputName=name;
   const finalName=inputName.charAt(0).toUpperCase()+inputName.slice(1);
   container.innerHTML = `
@@ -52,6 +55,7 @@ async function getWeatherBit(name, lat, lng) {
 
   <div>
 
+  <button class="close__trip">Remove Trip</button>
   <button class="save__trip">Save Trip</button>
  
 
@@ -61,10 +65,24 @@ async function getWeatherBit(name, lat, lng) {
 
   `
 
-  const saveTrip=document.querySelector(".save__trip");
+  
+  const closeTrip = document.querySelector(".close__trip");
+
+  closeTrip.addEventListener("click", ()=>{
+    tripMainContainer.style.display="none";
+    travelDetails.style.display="block";
+  
+  })
+
+  const saveTrip = document.querySelector(".save__trip");
+  const header = document.querySelector("header")
+  const savedTripsHeader = document.getElementById("saved-trips")
+  
+  
   saveTrip.addEventListener("click", ()=>{
   
     container.innerHTML = `
+    
     <h2 class="trip__away">Your trip to ${finalName} is ${flooredDaysAway} days away! ⏳</h2>
   <div class="trip__details"> 
   <h3>Trip Details</h3>
@@ -78,22 +96,21 @@ async function getWeatherBit(name, lat, lng) {
 
   <div>
 
-  <button class="close__trip">Remove Trip</button>
-  <button class="save__trip">Save Trip</button>
+
+
  
   </div>
 
   </div>
 
   `
-  const closeTrip = document.querySelector(".close__trip");
-  const tripContainer = document.querySelector(".container")
-  closeTrip.addEventListener("click", ()=>{
-    tripContainer.style.display="none";
-    travelDetails.style.display="block";
-  })
+  travelDetails.style.display="block"
+  travelDetails.style.position="relative"
+  travelDetails.style.bottom="50px"
+  savedTripsHeader.classList.add("active")
+  tripMainContainer.style.marginTop = "50px"
 
-  
+    
   })
   return weatherInfo;
 };
@@ -106,7 +123,7 @@ async function getPixabay(input) {
   const data = await response.json();
   const photo = document.querySelector(".photo")
   photo.innerHTML=` <img src="${data.hits[1].webformatURL}" alt="" class="pixabay_photo">`;
-
+  search.value = "";
   return data
 
 }
@@ -128,6 +145,7 @@ const pixabayPhoto = getPixabay(cityName);
 console.log(pixabayPhoto.then((data)=>{           //use .then on pixabayPhoto to get the specific object
   console.log(data.hits[1]);
   travelDetails.style.display="none";
+  
 }));
   })
 

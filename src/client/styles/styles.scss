@@ -25,6 +25,8 @@ body{
     // display:none;
 }
 
+
+
 button {
     margin-top: 2rem;
     padding: .5rem 3.5rem;
@@ -126,12 +128,26 @@ header {
     bottom: 40px;
   }
 
+  .saved__trips {
+      display:none;
+  }
+
+  .active {
+   display: block;
+   text-align: center;
+  }
+
   .trip__details {
     padding: 2rem;
     line-height: 26px;
     text-align: center;
     font-size: 18px;
    
+  }
+
+  .trip-main-border{
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
   }
 
   .pixabay_photo {
@@ -141,6 +157,11 @@ header {
       border-top-right-radius: 1rem;
       object-fit:cover;
   }
+
+//   .photo-active {
+//     border-top-left-radius: 0;
+//     border-top-right-radius: 0;
+//   }
 
   @media (min-width:968px) {
     .pixabay_photo {
