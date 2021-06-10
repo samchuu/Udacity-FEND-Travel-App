@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="/src/client/styles/styles.css"> -->
+   <!-- <link rel="stylesheet" href="/src/client/styles/styles.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;800&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,16 +24,16 @@
     <h1>Get Ready for your Lifetime Journey</h1>
     <p class="distinctio">Distinctio quaerat reiciendis ad facilis saepe voluptates earum natus beatae!</p>
    </header>
-   
 
     <div class="travel__details">
-        <div><input type="text" id="zip" placeholder="Where would you like to go?"></div>
-        
+        <div class="city__name">
+        <div><input type="text" class="zip"placeholder="Where would you like to go?"></div>
+        <div class="error">Please enter a valid city</div>
+    </div>
     <div class="dep__return">
         <label for="start">Departure</label>
         <input type="date" id="start" name="trip-start" value="2021-06-06" >
         
-
         <label for="end">Return</label>
         <input type="date" id="end" name="trip-end" value="2021-06-09" >
     </div>
@@ -47,30 +47,11 @@
         </div>
     <div class="box">
       
-        <!-- <h2 class="trip__away">Your trip is 30 days away! ⏳</h2>
-        <div class="trip__details"> 
-        <h3>Trip Details</h3>
-      
-        <p>🗺️  Trip to: ${finalName}, ${weatherInfo.countryCode}</p>
-        <p>🛫 Departure: ${startDate.value}</p>
-        <p>🛬  Return: ${endDate.value}</p>
-        <p>📆  Trip length: ${tripLength/millisecsInDayFormula} days</p>
-        <p>❄️ Temperature: ${weatherInfo.temp}°C</p>
-        <p>☁️  Description: ${weatherInfo.description}</p>
-      
-        <div>
-      
-        <button class="save__trip">Save Trip</button>
-        <button class="close__trip">Close</button>
-        </div>
-      
-        </div> -->
-      
     </div>
    
   
 </div>
 
-    <!-- <script src="/src/client/js/getWeather.js"></script> -->
+
 </body>
 </html>
