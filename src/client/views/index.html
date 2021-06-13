@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   <!-- <link rel="stylesheet" href="/src/client/styles/styles.css"> -->
-  
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;800&display=swap" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700;800&display=swap" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div id="logo">TRAVEL/APP 🚀</div>
     <div class="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-      </div>
-   <header>
-    <h1>Get Ready for your Lifetime Journey</h1>
-    <p class="distinctio">Distinctio quaerat reiciendis ad facilis saepe voluptates earum natus beatae!</p>
-   </header>
+    </div>
+    <header>
+        <h1>🌏 Travel Application 🌏</h1>
+        <p class="distinctio">Distinctio quaerat reiciendis ad facilis saepe voluptates earum natus beatae!</p>
+    </header>
 
     <div class="travel__details">
         <div class="city__name">
-        <div><input type="text" class="zip"placeholder="Where would you like to go?"></div>
-        <div class="error">Please enter a valid city</div>
-    </div>
-    <div class="dep__return">
-        <label for="start">Departure</label>
-        <input type="date" id="start" name="trip-start" value="2021-06-06" >
-        
-        <label for="end">Return</label>
-        <input type="date" id="end" name="trip-end" value="2021-06-09" >
-    </div>
-        <div><button id="generate" type = "submit">Submit</button></div>
-    </div>
-    <h1 id="saved-trips"class="saved__trips">My Saved Trips</h1>
-    <div class="container">
-        
-        <div class="photo">
-           
+            <div><input type="text" class="zip" placeholder="Where would you like to go?"></div>
+            <div class="error">Please enter a valid city</div>
         </div>
-    <div class="box">
-      
-    </div>
-   
-  
-</div>
+        <div class="dep__return">
+            <label for="start">Departure</label>
+            <input type="date" id="start" name="trip-start" value="2021-06-06">
 
+            <label for="end">Return</label>
+            <input type="date" id="end" name="trip-end" value="2021-06-09">
+        </div>
+        <div><button id="generate" type="submit">Submit</button></div>
+    </div>
+    <h1 id="saved-trips" class="saved__trips">My Saved Trips</h1>
+    <div class="container">
+
+        <div class="photo">
+
+        </div>
+        <div class="box">
+
+        </div>
+
+
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
 
 </body>
+
 </html>

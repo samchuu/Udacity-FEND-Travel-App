@@ -27,10 +27,13 @@ button {
   padding: .5rem 3.5rem;
   border-radius: 1rem;
   border: none;
-  cursor: pointer;
   background-color: #21BADC;
   color: white;
 
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .zip {
@@ -83,6 +86,10 @@ h2 {
   border: 2px solid #275765;
   border-radius: .5rem;
   min-width: 135px;
+}
+
+#start:hover, #end:hover {
+  cursor:pointer;
 }
 
 .trip__away {

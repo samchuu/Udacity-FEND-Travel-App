@@ -1,5 +1,6 @@
 import {getGeoNames} from "./getGeoNames"
 
+//lat and lng from getGeoNames 
 async function getWeatherBit(name, lat, lng) {
   const wbUser = process.env.WEATHERBIT_KEY;
   //make request to url
@@ -114,6 +115,7 @@ button.addEventListener("click", () => {
     errorMessage.style.display="none"
   
   }
+//binding everything together
   // console.log(getGeoNames(currentVal)); //get the whole data of geonames first then save in variable
   const geoData = getGeoNames(currentVal);
   console.log(geoData.then((data)=> {  //data parameter here is just getGeoNames(currentVal); use .then on geoData to get the specific data that you need
