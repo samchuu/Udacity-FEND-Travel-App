@@ -133,20 +133,5 @@ console.log(pixabayPhoto.then((data)=>{           //use .then on pixabayPhoto to
   }))
 });
 
-
-
 export { getWeatherBit }
 export { getPixabay }
-
-
-
-  
-
-
-
-
-
-
-
-
-
