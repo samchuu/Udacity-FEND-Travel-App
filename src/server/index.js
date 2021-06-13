@@ -18,9 +18,10 @@ app.use(express.static('dist'))
 
 //Setting up port for requests
 const port=8081;
-app.listen(port, function () {
+function listening () {
     console.log(`local host currently running on port: ${port}`)
-})
+}
+app.listen(port, listening);
 
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
