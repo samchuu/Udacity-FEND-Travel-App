@@ -1,220 +1,200 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: #21BADC ;
-    font-family: 'Lato', sans-serif;
-    color:black;
+body {
+  background-color: #21BADC;
+  font-family: 'Lato', sans-serif;
+  color: black;
 }
 
 .travel__details {
-    text-align: center;
-    background-color:aliceblue;
-    padding:2rem;
-    border-radius: 1rem;
-    width: 95%;
-    margin: 0 auto;
-    border: none;
-    max-width: 550px;
-    // display:none;
+  text-align: center;
+  background-color: aliceblue;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 95%;
+  margin: 0 auto;
+  border: none;
+  max-width: 550px;
+  // display:none;
 }
 
-
-
-
 button {
-    margin-top: 2rem;
-    padding: .5rem 3.5rem;
-    border-radius: 1rem;
-    border: none;
-    cursor:pointer;
-    background-color:#21BADC;
-    color:white;
-  
+  margin-top: 2rem;
+  padding: .5rem 3.5rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: #21BADC;
+  color: white;
+
 }
 
 .zip {
-   width: 100%;
-   padding: .5rem;
-   border-radius: 1rem;
-   border: 2px solid #275765;
-   margin-bottom: 35px;
-   outline:none;
-   background-color:aliceblue;
-   
+  width: 100%;
+  padding: .5rem;
+  border-radius: 1rem;
+  border: 2px solid #275765;
+  margin-bottom: 35px;
+  outline: none;
+  background-color: aliceblue;
+
 }
 
 .city__name {
- 
+
   max-height: 70px;
   text-align: start;
 }
 
 .error {
-  position:relative;
+  position: relative;
   bottom: 35px;
   padding: 4px;
   font-size: 12px;
-  color:red;
-  display:none;
+  color: red;
+  display: none;
 }
 
 .border__error {
 
   border: 2px solid red;
-  
+
 }
 
-.dep__return{
-    display:flex;
+.dep__return {
+  display: flex;
 }
 
 h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
+
 #start {
-    border: 2px solid #275765;
-    border-radius: .5rem;
-    min-width: 135px;
+  border: 2px solid #275765;
+  border-radius: .5rem;
+  min-width: 135px;
 }
 
 #end {
-    border: 2px solid #275765;
-    border-radius: .5rem;
-    min-width: 135px;
+  border: 2px solid #275765;
+  border-radius: .5rem;
+  min-width: 135px;
 }
 
-.trip__away { 
-    text-align:center;
-    position:relative;
-    top: 30px;
+.trip__away {
+  text-align: center;
+  position: relative;
+  top: 30px;
 }
 
 label {
   padding: 5px;
 }
-header {
-    text-align: center;
-    width: 80%;
 
-    margin: 2.5rem auto;
-    padding: 1.5rem;
-    max-width: 400px;
+header {
+  text-align: center;
+  width: 80%;
+  margin: 2.5rem auto;
+  padding: 1.5rem;
+  max-width: 400px;
 }
 
 .distinctio {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 #logo {
-    padding: .5rem;
-    font-size: 18px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
+  padding: .5rem;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
   cursor: pointer;
 }
 
-.hamburger {
-  position:absolute;
-  right: 10px;
-  top: 5px;
 
-  }
-  .hamburger:hover {
-    cursor: pointer;
-  }
-  .hamburger span {
-    display: block;
-    background: black;
-    margin: 6px 0;
-    height: 6px;
-    width: 36px;
-    border-radius: 2px;
-    position: relative;
-    transition: 0.3s;
+.container {
+  border: 1px solid black;
+  width: 95%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  background-color: aliceblue;
+  border: none;
+  position: relative;
+  bottom: 40px;
+}
+
+.saved__trips {
+  display: none;
+}
+
+.active {
+  display: block;
+  text-align: center;
+}
+
+.trip__details {
+  padding: 2rem;
+  line-height: 26px;
+  text-align: center;
+  font-size: 18px;
+
+}
+
+.trip-main-border {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.pixabay_photo {
+  width: 100%;
+  max-height: 300px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  object-fit: cover; //use object-fit to avoid pixelated photos
+}
+
+
+
+@media (min-width:968px) {
+  .pixabay_photo {
+    width: 484px;
+    height: 100%;
+    max-height: 700px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
+    object-fit: cover;
   }
 
   .container {
-      border: 1px solid black;
-      width: 95%;
-      max-width: 500px;
-      margin: 0 auto;
-      border-radius: 1rem;
-      background-color:aliceblue ;
-      border:none;
-    position:relative;
-    bottom: 40px;
+    display: flex;
+    max-width: 968px;
+    max-height: 450px;
+    border-radius: 10px;
   }
 
-  .saved__trips {
-      display:none;
-  }
 
-  .active {
-   display: block;
-   text-align: center;
+  .trip__away {
+    margin-left: 35px;
+    position: relative;
+    top: 85px;
+
   }
 
   .trip__details {
-    padding: 2rem;
-    line-height: 26px;
-    text-align: center;
-    font-size: 18px;
-   
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 15%;
+    line-height: 30px;
+    text-align: start;
+    margin-top: 75px;
+
+    width: 100%;
   }
-
-  .trip-main-border{
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-  }
-
-  .pixabay_photo {
-      width: 100%;
-      max-height: 300px;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
-      object-fit:cover;
-  }
-
-
-
-  @media (min-width:968px) {
-    .pixabay_photo {
-        width: 484px;
-        height: 100%;
-        max-height: 700px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 10px;
-        object-fit:cover;
-    }
-      .container {
-          display:flex;
-          max-width: 968px;
-          max-height: 450px;
-          border-radius: 10px;
-      }
-
-     
-      .trip__away { 
-      margin-left: 35px;
-      position:relative;
-      top: 85px;
-  
-    }
-      .trip__details{
-          display:flex;
-          flex-direction: column;
-          
-        margin-left:15%;
-        line-height: 30px;
-        text-align: start;
-        margin-top: 75px;
-       
-        width: 100%;
-      }
-  }
+}

@@ -1,4 +1,3 @@
-
 import {getGeoNames} from "./getGeoNames"
 
 async function getWeatherBit(name, lat, lng) {
@@ -34,8 +33,9 @@ async function getWeatherBit(name, lat, lng) {
   let flooredDaysAway= Math.floor(daysAway/millisecsInDayFormula);
   
   //trip details
-  const container = document.querySelector(".box");
   const tripMainContainer =document.querySelector(".container")
+  const container = document.querySelector(".box");
+  
   const inputName=name;
   const finalName=inputName.charAt(0).toUpperCase()+inputName.slice(1);
   container.innerHTML = `
@@ -116,26 +116,20 @@ button.addEventListener("click", () => {
   }
   // console.log(getGeoNames(currentVal)); //get the whole data of geonames first then save in variable
   const geoData = getGeoNames(currentVal);
-  console.log(geoData.then((data)=> {  //data parameter here is just getGeoNames(currentVal); use .then on geoData to get specifics
+  console.log(geoData.then((data)=> {  //data parameter here is just getGeoNames(currentVal); use .then on geoData to get the specific data that you need
     const lat=data.geonames[0].lat;
     const lng=data.geonames[0].lng;
     const cityName=data.geonames[0].name;
    console.log(getWeatherBit(currentVal,lat,lng));
   
 const pixabayPhoto = getPixabay(cityName);
-console.log(pixabayPhoto.then((data)=>{           //use .then on pixabayPhoto to get the specific object
+console.log(pixabayPhoto.then((data)=>{           //use .then on pixabayPhoto to get the specific data
   console.log(data.hits[1]);
   travelDetails.style.display="none";
   
 }));
-  })
-
-  )
-
-  })
- 
- 
-;
+  }))
+});
 
 
 

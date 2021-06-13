@@ -1,0 +1,21 @@
+.hamburger {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+}
+
+.hamburger:hover {
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    background: black;
+    margin: 6px 0;
+    height: 6px;
+    width: 36px;
+    border-radius: 2px;
+    position: relative;
+    transition: 0.3s;
+}
