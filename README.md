@@ -1,4 +1,4 @@
-# FEND CAPSTONE - TRAVEL APP
+# FEND Capstone - Travel App
 
 ## Overview
 
@@ -22,9 +22,11 @@ npm install
 Register for an account to get your own API key.
 
 ```
-GeoNames[here](http://www.geonames.org/export/web-services.html)
-Weatherbit[here](https://www.weatherbit.io/account/create)
-Pixabay[here](https://pixabay.com/api/docs/)
+GeoNames (http://www.geonames.org/export/web-services.html)
+
+Weatherbit (https://www.weatherbit.io/account/create)
+
+Pixabay (https://pixabay.com/api/docs/)
 ```
 
 At the root of the project, create a new file named `.env`.
